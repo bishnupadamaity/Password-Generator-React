@@ -26,29 +26,33 @@ function App() {
     passwordRef.current.select();
     passwordRef.current.setSelectionRange(0, 99);
     window.navigator.clipboard.writeText(password);
-  },[password])
+  }, [password])
 
   useEffect(() => {
     passwordGenerator();
-  },[length, numberAllowed, charAllowed, setPassword]);
+  }, [length, numberAllowed, charAllowed, setPassword]);
 
   return (
     <>
-      <div className="w-full bg-gray-600 max-w-md mx-auto shadow-md rounded-lg p-4 my-8 text-orange-500">
+      <div className="w-full bg-gray-600 max-w-xl mx-auto shadow shadow-slate-100 rounded-lg px-4 py-8 my-8 text-orange-500">
+        <div className="items-center text-center mb-8" >
+
+          <h1 className="text-2xl font-semibold mb-4 align-middle ">Password Generator</h1>
+        </div>
         <div className="flex shadow rounded-lg overflow-hidden mb-4">
           <input
             type="text"
             value={password}
-            className="outline-none w-full py-1 px-3 font-semibold"
+            className="outline-none w-full py-2.5 px-3 font-semibold"
             placeholder="Password"
             ref={passwordRef}
             readOnly
           />
-          <button onClick={copyPasswordToClipboard} className="outline-none bg-blue-600 text-white px-3 py-0.5 shrink-0 font-semibold">
+          <button onClick={copyPasswordToClipboard} className="outline-none bg-blue-600 text-white px-6 py-0.5 shrink-0 font-semibold">
             Copy
           </button>
         </div>
-        <div className="flex text-sm gap-x-2">
+        <div className="flex text-lg gap-x-2 justify-around mt-8">
           <div className="flex items-center gap-x-1">
             <input
               type="range"
